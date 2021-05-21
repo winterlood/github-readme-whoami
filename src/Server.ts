@@ -41,29 +41,50 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     });
 });
 
-
-/************************************************************************************
- *                              Serve front-end content
- ***********************************************************************************/
-
-// const myDir = path.join(__dirname,'')
-
-
+const assetsDir = path.join(__dirname,'assets')
 const viewsDir = path.join(__dirname, 'views');
+const staticDir = path.join(__dirname, 'public');
+
 app.set('views', viewsDir);
 app.set("view engine","ejs");
-
-const staticDir = path.join(__dirname, 'public');
 app.use(express.static(staticDir));
 
+
+const svgReducer = (skill?:string) =>{
+    switch(skill){
+        case 'react':
+            {
+                const svgPath = path.join(assetsDir,'react_icon.svg');
+                return svgPath;
+            }
+        default:
+            return 'ERROR'
+    }
+}
+
+app.get('/svg', (req: Request, res: Response) => {
+    const skill:string | undefined = req.query.skill?.toString()
+    if(skill){
+       const svgPath = svgReducer(skill);
+       res.sendFile(svgPath);
+    }
+    else{
+        res.send("ERROR")
+    }
+});
+
 app.get('*', (req: Request, res: Response) => {
-    // console.log(req.query.name)
     const {name} = req.query
     console.log(name)
 
-   res.render("index",{
-       name:name,
-       two:'TWO'
-   })
+    const svgPath = path.join(viewsDir,'react.svg')
+
+    res.setHeader('Content-Type','image/svg+xml');
+    res.sendFile(svgPath)
+    // res.render("index",{
+    //     name:name,
+    //     two:'TWO'
+    // })
+
 });
 export default app;

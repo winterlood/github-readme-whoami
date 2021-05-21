@@ -1,6 +1,7 @@
 {
   "name": "github-readme-whoami",
   "version": "0.0.0",
+  "main":"src/index.ts",
   "scripts": {
     "build": "./node_modules/.bin/ts-node build.ts",
     "lint": "eslint . --ext .ts",

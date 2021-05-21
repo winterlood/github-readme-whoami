@@ -1,0 +1,24 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        .header {
+            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+            fill: #2f80ed;
+            animation: fadeInAnimation 0.8s ease-in-out forwards;
+        }
+    </style>
+    <rect data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" stroke="#e4e2e2" width="494" fill="#fffefe"
+        stroke-opacity="1" />
+    <g data-testid="card-title" transform="translate(25, 35)">
+        <g transform="translate(0, 0)">
+
+
+            <text x="0" y="0" class="header" data-testid="header">winterlood's Skill Set</text>
+        </g>
+    </g>
+    <rect x='0' y='60' width="30%" height="100" fill="red" />
+    <rect x='35%' y='60' width="30%" height="100" fill="blue" />
+    <rect x='70%' y='60' width="30%" height="100" fill="green" />
+
+
+</svg>
