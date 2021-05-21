@@ -18,6 +18,7 @@ logger.timestamp = false;
         // Remove current build
         await remove('./dist/');
         // Copy front-end files
+        await copy('./src/assets', './dist/assets');
         await copy('./src/public', './dist/public');
         await copy('./src/views', './dist/views');
         // Copy production env file
